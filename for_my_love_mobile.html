@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8a9c4">
+<title>For My Love ❤️</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;width:100%}
+body{
+  min-height:100svh;min-height:100dvh;overflow-x:hidden;overflow-y:auto;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px 14px calc(20px + env(safe-area-inset-bottom));
+  font-family:Georgia,serif;color:#761b40;
+  background:linear-gradient(145deg,#ffeaf1 0%,#ffc6d9 48%,#f48caf 100%);
+}
+.card{
+  position:relative;z-index:2;width:100%;max-width:440px;
+  padding:clamp(25px,7vw,38px) clamp(18px,6vw,28px);
+  text-align:center;border:1px solid rgba(255,255,255,.85);
+  border-radius:28px;background:rgba(255,255,255,.76);
+  box-shadow:0 16px 45px rgba(133,26,68,.16);backdrop-filter:blur(8px);
+}
+.tiny{letter-spacing:2.5px;text-transform:uppercase;font:11px/1.5 Arial,sans-serif;color:#b34b70}
+h1{font-size:clamp(36px,10vw,48px);margin:10px 0 5px;line-height:1.1}
+.heart{font-size:clamp(66px,19vw,82px);display:inline-block;animation:beat 1s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.loop{width:100%;overflow:hidden;white-space:nowrap;font:bold 17px Arial,sans-serif;color:#e04479;margin:18px 0}
+.loop span{display:inline-block;padding-left:100%;animation:scroll 12s linear infinite}
+@keyframes scroll{to{transform:translateX(-100%)}}
+p{font-size:clamp(16px,4.4vw,18px);line-height:1.65;margin:12px 0}
+button{
+  display:block;width:100%;min-height:52px;border:0;border-radius:999px;
+  padding:14px 18px;background:#df477b;color:white;font-size:16px;
+  font-weight:600;cursor:pointer;box-shadow:0 8px 18px #df477b44;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation
+}
+button:active{transform:scale(.98)}
+#secret{display:none;margin-top:20px;padding-top:18px;border-top:1px solid #f2b4c9}
+.signature{font-style:italic;color:#b34b70;margin-top:18px}
+.float{position:fixed;bottom:-45px;z-index:1;opacity:.5;animation:rise linear infinite;pointer-events:none}
+@keyframes rise{to{transform:translateY(-115svh) rotate(25deg);opacity:0}}
+@media(max-height:650px){body{align-items:flex-start}.card{margin:10px auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="tiny">A little something for you</div>
+  <div class="heart" aria-hidden="true">❤️</div>
+  <h1>I love you</h1>
+  <div class="loop" aria-label="I love you"><span>I LOVE YOU ❤️ I LOVE YOU ❤️ I LOVE YOU ❤️ I LOVE YOU ❤️</span></div>
+  <p>My love, I hope you never forget how special you are to me. You are beautiful, you are precious, and you mean more to me than words can explain. ❤️</p>
+  <button type="button" onclick="showLove()">Open your little surprise 💌</button>
+  <section id="secret" aria-live="polite">
+    <p>Even on the days you don't feel your best, I will still look at you with the same love. I don't need you to be perfect. I just want you to be you. I'm lucky to have you, and I will keep choosing you, every single day. 🥹❤️</p>
+    <div class="signature">Forever yours ❤️</div>
+  </section>
+</main>
+<script>
+function showLove(){
+  document.getElementById('secret').style.display='block';
+  document.querySelector('button').textContent='I love you endlessly ❤️';
+}
+const symbols=['❤️','💕','💗','💖','💘'];
+for(let i=0;i<18;i++){
+  const el=document.createElement('div');el.className='float';
+  el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left=Math.random()*100+'vw';
+  el.style.fontSize=(16+Math.random()*20)+'px';
+  el.style.animationDuration=(8+Math.random()*9)+'s';
+  el.style.animationDelay=(-Math.random()*15)+'s';
+  document.body.appendChild(el);
+}
+</script>
+</body>
+</html>
